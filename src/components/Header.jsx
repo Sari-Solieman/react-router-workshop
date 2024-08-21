@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom'
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,10 +16,10 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = [
-    { title: 'Watch', link: '/watch' },
-    { title: 'Explore', link: '/explore' },
-    { title: 'Log in', link: '/login' },
-    { title: 'Sign up', link: '/signup' },
+    { title: 'Watch', path: '/watch' },
+    { title: 'Explore', path: '/explore' },
+    { title: 'Log in', path: '/login' },
+    { title: 'Sign up', path: '/signup' },
 ];
 const settings = ['Log in', 'Sign up'];
 
@@ -119,9 +121,10 @@ function ResponsiveAppBar() {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map(({ title, link }) => (
+                        {pages.map(({ title, path }) => (
                             <Button
-                                href={link}
+                                component={Link}
+                                to={path}
                                 key={title}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
