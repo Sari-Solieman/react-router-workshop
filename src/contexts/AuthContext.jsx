@@ -1,11 +1,13 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({
+    isAuthenticated: false,
+});
 
 export const AuthContextProvider = ({
     children,
 }) => {
-    const [auth, setAuth] = useState();
+    const [auth, setAuth] = useState({});
 
     const login = (authData) => {
         setAuth(authData);
@@ -14,7 +16,7 @@ export const AuthContextProvider = ({
     const contextData = {
         ...auth,
         login,
-        isAuthenticated: auth.emial,
+        isAuthenticated: auth.email,
     };
 
     return (

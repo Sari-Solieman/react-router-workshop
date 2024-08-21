@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../contexts/authContext';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,12 +19,14 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
     { title: 'Watch', path: '/watch' },
     { title: 'Explore', path: '/explore' },
-    { title: 'Log in', path: '/login' },
-    { title: 'Sign up', path: '/signup' },
+    { title: 'Log in', path: '/login', guestOnly: true },
+    { title: 'Sign up', path: '/signup', guestOnly: true },
 ];
 const settings = ['Log in', 'Sign up'];
 
-function ResponsiveAppBar() {
+function Header() {
+    const { isAuthenticated } = React.useContext(AuthContext);
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -121,7 +124,7 @@ function ResponsiveAppBar() {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map(({ title, path }) => (
+                        {pages.filter(({ guestOnly }) => isAuthenticated ? !guestOnly : true).map(({ title, path }) => (
                             <Button
                                 component={Link}
                                 to={path}
@@ -168,4 +171,4 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
-export default ResponsiveAppBar;
+export default Header;
