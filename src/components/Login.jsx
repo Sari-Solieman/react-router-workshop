@@ -1,4 +1,8 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../contexts/authContext';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +18,12 @@ import Container from '@mui/material/Container';
 
 
 export default function Login() {
+    const { login } = React.useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const [error, setError] = React.useState('');
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -30,7 +40,14 @@ export default function Login() {
         });
 
         const result = await response.json();
-        console.log(result);
+
+        if (response.ok) {
+
+            login(result);
+
+            return navigate('/watch')
+        }
+        setError(result.message);
 
     };
 
@@ -54,6 +71,8 @@ export default function Login() {
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
+                        error={!!error}
+                        helperText={error}
                         margin="normal"
                         required
                         fullWidth
@@ -64,6 +83,8 @@ export default function Login() {
                         autoFocus
                     />
                     <TextField
+                        error={!!error}
+                        helperText={error}
                         margin="normal"
                         required
                         fullWidth
