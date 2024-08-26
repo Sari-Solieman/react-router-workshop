@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,9 +17,14 @@ import Container from '@mui/material/Container';
 
 
 export default function SignUp() {
+
+    const navigate = useNavigate();
+
     const handleSubmit = async (event) => {
 
         event.preventDefault();
+
+
 
         const data = new FormData(event.currentTarget);
 
@@ -32,11 +39,19 @@ export default function SignUp() {
             })
         })
         const result = await response.json();
+
         console.log(result);
 
+
+        if (response.ok) {
+
+            return navigate('/login', { state: { showPopUp: true } });
+
+        }
     };
 
     return (
+
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box

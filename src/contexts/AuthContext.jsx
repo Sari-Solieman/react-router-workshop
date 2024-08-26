@@ -16,7 +16,7 @@ export const AuthContextProvider = ({
     const contextData = {
         ...auth,
         login,
-        isAuthenticated: auth.email,
+        isAuthenticated: auth.username,
     };
 
     return (
