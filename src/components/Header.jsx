@@ -17,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = [
-    { title: 'Watch', path: '/watch' },
+    { title: 'recipes list', path: '/recipesList' },
     { title: 'Explore', path: '/explore' },
     { title: 'Log in', path: '/login', guestOnly: true },
     { title: 'Sign up', path: '/signup', guestOnly: true },
