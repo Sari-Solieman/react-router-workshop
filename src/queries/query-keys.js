@@ -1,3 +1,4 @@
 export const itemKeys = {
-    all : () => ['recipes']
+    all : () => ['recipes'],
+    one : (recipeId) => ['recipes', recipeId]
 }
