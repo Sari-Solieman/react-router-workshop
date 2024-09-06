@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = 'https://dummyjson.com/products'
+const baseUrl = 'https://dummyjson.com/recipes'
 
 export default {
     async getAll () {

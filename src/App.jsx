@@ -6,9 +6,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Header from "./components/Header"
 import RecipesList from './components/RecipesList'
-import Explore from './components/Explore'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import AddRecipe from './components/AddRecipe';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
 
                 <Routes>
                     <Route path='/recipeslist' element={<RecipesList />} />
-                    <Route path='/explore' element={<Explore />} />
+                    <Route path='/addrecipe' element={<AddRecipe />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/signup' element={<Signup />} />
                 </Routes>

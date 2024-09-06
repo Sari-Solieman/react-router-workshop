@@ -18,9 +18,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = [
     { title: 'recipes list', path: '/recipesList' },
-    { title: 'Explore', path: '/explore' },
-    { title: 'Log in', path: '/login', guestOnly: true },
-    { title: 'Sign up', path: '/signup', guestOnly: true },
+    { title: 'add recipe', path: '/addrecipe' },
+    { title: 'log in', path: '/login', guestOnly: true },
+    { title: 'sign up', path: '/signup', guestOnly: true },
 ];
 const settings = ['Log in', 'Sign up'];
 

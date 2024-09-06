@@ -1,3 +1,3 @@
 export const itemKeys = {
-    all : () => ['products']
+    all : () => ['recipes']
 }

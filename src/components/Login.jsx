@@ -37,7 +37,7 @@ export default function Login() {
             body: JSON.stringify({
                 username: data.get('username'),
                 password: data.get('password'),
-                expiresInMins: 30, // optional, defaults to 60
+                expiresInMins: 30,
             })
         });
 
